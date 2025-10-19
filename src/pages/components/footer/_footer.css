@@ -1,6 +1,6 @@
 .footer {
   background-color: var(--cta-bg);
-  color: var(--surface);
+  color: var(--cta-text);
   padding: 4rem 2rem 2rem;
   font-family: var(--font-body);
 }
@@ -8,7 +8,7 @@
 /* todos los textos del footer comparten el mismo color base */
 .footer,
 .footer * {
-  color: var(--surface);
+  color: var(--cta-text);
 }
 
 .footer-content {

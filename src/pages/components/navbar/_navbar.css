@@ -140,13 +140,40 @@
   }
 }
 
-/* ======== DARK MODE ======== */
+/* ======== MODO OSCURO ======== */
 :root[data-theme="dark"] {
+  /* === COLORES BASE === */
   --bg: #1e1e1e;
+  --surface: #2b2b2b;
   --text-primary: #ffffff;
   --text-secondary: #dddddd;
   --muted: #444444;
-  --cta-bg: #007bff;
-  --cta-bg-hover: #005fcc;
+  --bg-alternative: #252525;
+  --bg-alternative1: #2f2f2f;
+
+  /* === ACENTOS === */
+  --accent: #d6a063;
+  --accent-light: #e6b877;
+  --accent-dark: #a87c4e;
+  --accent-title: #f0c088;
+
+  /* === ACCIONES === */
+  --cta-bg: #283c52;
+  --cta-bg-sv: #d1d5db;
+  --cta-bg-hover: #0d2f55;
   --cta-text: #ffffff;
+
+  /* === DECORATIVOS === */
+  --badge-bg: #2f2f2f;
+  --badge-border: #3c3c3c;
+  --badge-text: #d1d5db;
+  --badge-gray: #555555;
+
+  /* === ESTADOS === */
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  /* === EFECTOS === */
+  --glass: rgba(40, 40, 40, 0.6);
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
