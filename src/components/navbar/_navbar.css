@@ -22,10 +22,10 @@
   font-family: var(--font-title);
   font-weight: var(--fw-bold);
   font-size: 1.25rem;
+  letter-spacing: 0.5px;
   color: var(--text-primary);
 }
 
-/* ======== NAV LINKS ======== */
 .nav-links {
   display: flex;
   align-items: center;
@@ -46,7 +46,6 @@
   color: var(--accent-dark);
 }
 
-/* ======== BUTTON ======== */
 .btn-comenzar {
   background: var(--cta-bg);
   color: var(--cta-text);
@@ -56,6 +55,7 @@
   font-family: var(--font-body);
   font-weight: var(--fw-semibold);
   font-size: 0.8rem;
+  letter-spacing: 0.5px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -63,6 +63,9 @@
 .btn-comenzar:hover {
   background: var(--cta-bg-hover);
 }
+
+// codigo editado de gian modo claro y oscuro, merge de apo.
+
 
 /* ======== THEME TOGGLE ======== */
 .theme-toggle {
@@ -171,9 +174,3 @@
 
   /* === ESTADOS === */
   --success: #22c55e;
-  --danger: #ef4444;
-
-  /* === EFECTOS === */
-  --glass: rgba(40, 40, 40, 0.6);
-  --shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-}
