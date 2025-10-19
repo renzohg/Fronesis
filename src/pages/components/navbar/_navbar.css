@@ -22,13 +22,15 @@
   font-family: var(--font-title);
   font-weight: var(--fw-bold);
   font-size: 1.25rem;
-  letter-spacing: 0.5px;
   color: var(--text-primary);
 }
 
+/* ======== NAV LINKS ======== */
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 2.5rem;
+  transition: all 0.3s ease;
 }
 
 .nav-links a {
@@ -44,6 +46,7 @@
   color: var(--accent-dark);
 }
 
+/* ======== BUTTON ======== */
 .btn-comenzar {
   background: var(--cta-bg);
   color: var(--cta-text);
@@ -53,11 +56,124 @@
   font-family: var(--font-body);
   font-weight: var(--fw-semibold);
   font-size: 0.8rem;
-  letter-spacing: 0.5px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .btn-comenzar:hover {
   background: var(--cta-bg-hover);
+}
+
+/* ======== THEME TOGGLE ======== */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  margin-right: 1rem;
+}
+
+/* ======== HAMBURGER ======== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 45px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .btn-comenzar {
+    margin-top: 1rem;
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 100;
+  }
+}
+
+/* ======== MODO OSCURO ======== */
+:root[data-theme="dark"] {
+  /* === COLORES BASE === */
+  --bg: #1e1e1e;
+  --surface: #2b2b2b;
+  --text-primary: #ffffff;
+  --text-secondary: #dddddd;
+  --muted: #444444;
+  --bg-alternative: #252525;
+  --bg-alternative1: #2f2f2f;
+
+  /* === ACENTOS === */
+  --accent: #d6a063;
+  --accent-light: #e6b877;
+  --accent-dark: #a87c4e;
+  --accent-title: #f0c088;
+
+  /* === ACCIONES === */
+  --cta-bg: #283c52;
+  --cta-bg-sv: #d1d5db;
+  --cta-bg-hover: #0d2f55;
+  --cta-text: #ffffff;
+
+  /* === DECORATIVOS === */
+  --badge-bg: #2f2f2f;
+  --badge-border: #3c3c3c;
+  --badge-text: #d1d5db;
+  --badge-gray: #555555;
+
+  /* === ESTADOS === */
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  /* === EFECTOS === */
+  --glass: rgba(40, 40, 40, 0.6);
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
