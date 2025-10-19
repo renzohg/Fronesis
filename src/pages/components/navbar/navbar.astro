@@ -39,6 +39,7 @@ function toggleTheme() {
     const root = document.documentElement;
     let isDark = false;
 
+    // Abrir/cerrar menú
     if (hamburger && navLinks) {
       hamburger.addEventListener("click", () => {
         hamburger.classList.toggle("active");
@@ -46,6 +47,20 @@ function toggleTheme() {
       });
     }
 
+    // Cerrar menú al hacer clic en una opción
+    if (navLinks && hamburger) {
+      const navItems = navLinks.querySelectorAll("a, button");
+      navItems.forEach(item => {
+        item.addEventListener("click", () => {
+          if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+    }
+
+    // Cambiar tema
     if (themeToggle) {
       themeToggle.addEventListener("click", () => {
         isDark = !isDark;
@@ -54,3 +69,4 @@ function toggleTheme() {
     }
   </script>
 </header>
+
