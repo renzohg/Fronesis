@@ -1,0 +1,72 @@
+---
+import "./_navbar.css";
+
+let isDark = false;
+
+function toggleTheme() {
+  const root = document.documentElement;
+  isDark = !isDark;
+  root.setAttribute("data-theme", isDark ? "dark" : "light");
+}
+---
+
+<header class="navbar">
+  <div class="navbar-container">
+    <div class="logo" id="FRÓNESIS">
+      <a href="#" aria-label="Ir al inicio">FRÓNESIS</a>
+    </div>
+
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-links">
+      <a href="#header_id">INICIO</a>
+      <a href="#servicios">SERVICIOS</a>
+      <a href="#nosotros">NOSOTROS</a>
+      <a href="#contacto">CONTACTO</a>
+      <button class="btn-comenzar">COMENZAR</button>
+    </nav>
+
+    <button class="theme-toggle" id="theme-toggle">🌓</button>
+  </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    const themeToggle = document.getElementById("theme-toggle");
+    const root = document.documentElement;
+    let isDark = false;
+
+    // Abrir/cerrar menú
+    if (hamburger && navLinks) {
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("open");
+      });
+    }
+
+    // Cerrar menú al hacer clic en una opción
+    if (navLinks && hamburger) {
+      const navItems = navLinks.querySelectorAll("a, button");
+      navItems.forEach(item => {
+        item.addEventListener("click", () => {
+          if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+    }
+
+    // Cambiar tema
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        isDark = !isDark;
+        root.setAttribute("data-theme", isDark ? "dark" : "light");
+      });
+    }
+  </script>
+</header>

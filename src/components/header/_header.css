@@ -1,12 +1,13 @@
-.header {
+.section_header {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 57px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 0rem 1rem;
+  margin-top: 57px;
   background-color: var(--bg);
   background-image: repeating-linear-gradient(
     to right,

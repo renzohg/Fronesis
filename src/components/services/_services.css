@@ -2,19 +2,20 @@
 .servicios {
   background-color: var(--bg-alternative);
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 4rem 1rem;
 }
 
 .contenido {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  max-width: 80rem; /* 1280px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem; /* 32px */
+  padding-right: 2rem; /* 32px */
 }
 
 .titulo-principal {
@@ -30,11 +31,10 @@
 }
 
 .titulo-principal {
-  margin: 0;        /* elimina margen superior e inferior */
-  line-height: 1;   /* evita espacio vertical adicional dentro del texto */
-  display: block;   /* asegura que cada h2 sea un bloque separado */
+  margin: 0; /* elimina margen superior e inferior */
+  line-height: 1; /* evita espacio vertical adicional dentro del texto */
+  display: block; /* asegura que cada h2 sea un bloque separado */
 }
-
 
 .subtitulo {
   font-family: var(--font-body);
@@ -55,7 +55,7 @@
 /* === CONTENEDOR DE TARJETAS === */
 .cards-container {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: flex-start;
   gap: 16px;
   margin-top: 1rem;
@@ -67,7 +67,7 @@
 .card {
   /* Calcula el ancho: (100% / 4) - ajuste para el gap. 
      Esto garantiza que 4 elementos + 3 gaps de 16px quepan. */
-  flex: 0 1 calc(25% - 12px); 
+  flex: 0 1 calc(25% - 12px);
   background-color: white;
   padding: 1.5rem;
   border-radius: 8px;
@@ -77,18 +77,18 @@
 }
 
 /* Responsivo: 2 tarjetas por fila en pantallas medianas */
-@media (max-width: 1150px) { 
-    .card {
-        flex: 0 1 calc(50% - 8px); 
-        margin-bottom: 16px;
-    }
-    .cards-container{
-          flex-wrap: wrap;
-    }
+@media (max-width: 1150px) {
+  .card {
+    flex: 0 1 calc(50% - 8px);
+    margin-bottom: 16px;
+  }
+  .cards-container {
+    flex-wrap: wrap;
+  }
 }
 
 /* Responsivo: 1 tarjeta por fila en móviles */
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .cards-container {
     padding: 0 1rem;
     gap: 16px;
@@ -115,15 +115,12 @@
 
 /* Estilo para el punto/viñeta personalizado */
 .card-items-list li::before {
-  content: '•';
+  content: "•";
   color: var(--accent-title);
   font-weight: bold;
   display: inline-block;
   width: 1em;
   margin-left: -1em;
   position: absolute;
-  left: 15px; 
+  left: 15px;
 }
-
-
-
