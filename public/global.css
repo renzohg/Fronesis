@@ -22,6 +22,7 @@
   --badge-bg: #FFFFFF;
   --badge-border: #F1E3D6;
   --badge-text: #59656e;
+  --badge-gray: #ccc;
 
   /* === ESTADOS === */
   --success: #16a34a;
@@ -42,6 +43,11 @@
   --fw-semibold: 600;
   --fw-bold: 700;
 }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   background: var(--bg);
@@ -49,9 +55,6 @@ body {
   font-family: var(--font-body);
   font-weight: var(--fw-regular);
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 h1, h2, h3, h4, h5, h6 {

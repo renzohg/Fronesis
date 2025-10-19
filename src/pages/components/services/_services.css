@@ -10,7 +10,10 @@
 
 .contenido {
   text-align: center;
-  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
@@ -25,6 +28,13 @@
 .titulo-principal .resaltado {
   color: var(--accent);
 }
+
+.titulo-principal {
+  margin: 0;        /* elimina margen superior e inferior */
+  line-height: 1;   /* evita espacio vertical adicional dentro del texto */
+  display: block;   /* asegura que cada h2 sea un bloque separado */
+}
+
 
 .subtitulo {
   font-family: var(--font-body);

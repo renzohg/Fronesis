@@ -1,0 +1,263 @@
+.quotation-section {
+  max-width: 750px;
+  margin: 4rem auto;
+  padding: 2rem 1.5rem;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg);
+}
+
+.header-content {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.main-title {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  line-height: 1;
+  margin: 5px;
+  display: block;
+}
+
+.accent-title-span {
+  color: var(--accent);
+  font-family: var(--font-title);
+  font-weight: var(--fw-bold);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.response-time-badges {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--badge-text);
+  font-weight: var(--fw-regular);
+}
+
+.badgee {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.badgee .icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--accent-light);
+}
+
+.form-container {
+  background-color: var(--surface);
+  padding: 3rem 2.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--badge-gray);
+}
+
+.form-title {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+  text-align: center;
+  margin: 0 0 0.5rem 0;
+}
+
+.form-instruction {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--badge-gray);
+  width: 50px;
+  margin: 1.5rem auto 2rem;
+  opacity: 0.7;
+}
+
+.section-title {
+  font-size: 0.8rem;
+  font-weight: var(--fw-semibold);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px dotted var(--badge-gray);
+  letter-spacing: 0.05em;
+}
+
+.form-group-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 0.75rem;
+  font-weight: var(--fw-semibold);
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.required {
+  color: var(--text-primary);
+  margin-left: 0.2rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 90%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--badge-gray);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: var(--surface);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--badge-gray);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--cta-bg);
+  outline: none;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--badge-gray);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-primary);
+  background-color: var(--surface);
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-primary);
+  font-size: 0.75rem;
+}
+
+.select-wrapper select:invalid {
+  color: var(--badge-gray);
+}
+
+/* Color de las opciones dentro del select */
+.select-wrapper select option {
+  color: var(--text-primary);
+}
+
+
+.cta-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: auto;
+  margin: 2rem auto 1rem;
+  padding: 0.8rem 2rem;
+  background-color: var(--cta-bg);
+  color: var(--cta-text);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: var(--text-primary);
+}
+
+.cta-button .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.cta-button:hover {
+  background-color: var(--cta-bg-hover);
+}
+
+.privacy-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.conteiner-main-title {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 650px) {
+  .form-group-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-container {
+    padding: 2rem 1rem;
+  }
+
+  .main-title {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+
+
