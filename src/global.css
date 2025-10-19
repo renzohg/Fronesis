@@ -15,6 +15,7 @@
 
   /* === ACCIONES === */
   --cta-bg: #133e87;       /* Azul principal (botones) */
+  --cta-bg-sv: #133e87;
   --cta-bg-hover: #1b51af; /* Azul más oscuro (hover) */
   --cta-text: #ffffff;
 
