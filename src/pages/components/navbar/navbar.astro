@@ -1,5 +1,13 @@
 ---
 import "./_navbar.css";
+
+let isDark = false;
+
+function toggleTheme() {
+  const root = document.documentElement;
+  isDark = !isDark;
+  root.setAttribute("data-theme", isDark ? "dark" : "light");
+}
 ---
 
 <header class="navbar">
@@ -7,12 +15,42 @@ import "./_navbar.css";
     <div class="logo">
       <h1>FRÓNESIS</h1>
     </div>
-    <nav class="nav-links">
+
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-links" id="nav-links">
       <a href="#inicio">INICIO</a>
       <a href="#servicios">SERVICIOS</a>
       <a href="#nosotros">NOSOTROS</a>
-      <a href="#contacto">CONTACTO</a>
+      <button class="btn-comenzar">CONTACTO</button>
     </nav>
-    <button class="btn-comenzar">COMENZAR</button>
+
+    <button class="theme-toggle" id="theme-toggle">🌓</button>
   </div>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    const themeToggle = document.getElementById("theme-toggle");
+    const root = document.documentElement;
+    let isDark = false;
+
+    if (hamburger && navLinks) {
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("open");
+      });
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        isDark = !isDark;
+        root.setAttribute("data-theme", isDark ? "dark" : "light");
+      });
+    }
+  </script>
 </header>
