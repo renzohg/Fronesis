@@ -9,6 +9,10 @@
   z-index: 50;
 }
 
+a{
+  text-decoration: none;
+}
+
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -18,12 +22,11 @@
   justify-content: space-between;
 }
 
-.logo h1 {
+#fronesis-logo {
   font-family: var(--font-title);
-  font-weight: var(--fw-bold);
   font-size: 1.25rem;
   letter-spacing: 0.5px;
-  color: var(--text-primary);
+  color: var(--text-secondary);
 }
 
 .nav-links {
@@ -45,27 +48,6 @@
 .nav-links a:hover {
   color: var(--accent-dark);
 }
-
-.btn-comenzar {
-  background: var(--cta-bg);
-  color: var(--cta-text);
-  border: none;
-  border-radius: 4px;
-  padding: 8px 20px;
-  font-family: var(--font-body);
-  font-weight: var(--fw-semibold);
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.btn-comenzar:hover {
-  background: var(--cta-bg-hover);
-}
-
-// codigo editado de gian modo claro y oscuro, merge de apo.
-
 
 /* ======== THEME TOGGLE ======== */
 .theme-toggle {
@@ -111,7 +93,7 @@
 }
 
 /* ======== RESPONSIVE ======== */
-@media (max-width: 768px) {
+@media (max-width: 760px) {
   .nav-links {
     position: fixed;
     top: 0;
@@ -131,10 +113,6 @@
   .nav-links.open {
     opacity: 1;
     pointer-events: auto;
-  }
-
-  .btn-comenzar {
-    margin-top: 1rem;
   }
 
   .hamburger {
@@ -174,3 +152,4 @@
 
   /* === ESTADOS === */
   --success: #22c55e;
+}

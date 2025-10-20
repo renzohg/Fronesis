@@ -2,6 +2,7 @@
   background-color: var(--bg);
   color: var(--text-primary);
   padding: 6rem 0;
+  padding-top: 3rem;
   font-family: var(--font-body);
   display: flex;
   justify-content: center;
@@ -9,6 +10,7 @@
 
 .contenedor {
   width: 1100px;
+  padding: 0 1.5rem;
   max-width: 1100px;
   display: flex;
   justify-content: space-between;
@@ -125,17 +127,14 @@
   .contenedor {
     flex-direction: column;
     text-align:start;
-    border: 1px solid red;
     padding: 1.5rem;
   }
 
   .columna-izquierda{
     width: 100%;
-    border: 1px solid blue;
   }
   .columna-derecha {
     width: 100%;
-    border: 1px solid gold;
   }
   .columna-derecha .cardd {
     width: 100%;

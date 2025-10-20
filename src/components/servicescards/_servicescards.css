@@ -7,12 +7,8 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.25s ease;
-  width: 200px;          /* más angosta: entran 3 */
+  width: 250px;          /* más angosta: entran 3 */
   min-height: 140px;
-}
-
-.card:hover {
-  transform: translateY(-5px);
 }
 
 .card-image {
@@ -67,13 +63,3 @@
   transition: background-color 0.2s ease;
 }
 
-.card-button:hover {
-  background-color: var(--cta-bg-hover);
-}
-
-.card {
-  opacity: 0;
-  transform: translateY(50px);
-  /* transición muy rápida para que sea casi instantáneo */
-  transition: transform 0.1s linear, opacity 0.1s linear;
-}
