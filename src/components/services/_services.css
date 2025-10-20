@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 1rem;
+  padding: 4rem 0rem;
 }
 
 .contenido {
@@ -14,8 +14,7 @@
   max-width: 80rem; /* 1280px */
   margin-left: auto;
   margin-right: auto;
-  padding-left: 2rem; /* 32px */
-  padding-right: 2rem; /* 32px */
+  text-align: center;
 }
 
 .titulo-principal {
@@ -59,7 +58,6 @@
   align-items: flex-start;
   gap: 16px;
   margin-top: 1rem;
-  max-width: 1100px; /* Asegura un ancho suficiente para las 4 */
   width: 100%;
 }
 
@@ -84,20 +82,37 @@
   }
   .cards-container {
     flex-wrap: wrap;
+    padding: 0 1.5rem;
   }
 }
 
 /* Responsivo: 1 tarjeta por fila en móviles */
 @media (max-width: 768px) {
   .cards-container {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
+
   .card {
-    flex: 0 1 100%;
+    flex: 0 1 calc(50% - 16px); /* dos columnas */
     max-width: 400px;
   }
 }
+
+/* Cuando realmente sea muy chico el ancho, recién ahí pasa a una columna */
+@media (max-width: 660px) {
+  .card {
+    flex: 0 1 100%; 
+    max-width: none; 
+  }
+  .contenido{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
 
 /* === ESTILOS DE LISTA DENTRO DE LA TARJETA === */
 .card-items-list {

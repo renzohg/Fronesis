@@ -20,35 +20,3 @@ import "./_servicescards.css";
     
   </div>
 </div>
-
-<script type="module">
-if (typeof window !== 'undefined') {
-  const cards = document.querySelectorAll('.card');
-
-  function animateCards() {
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-
-    cards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      const cardTop = rect.top + scrollTop;
-
-      // Calcular cuánto de la card está visible
-      const visible = Math.min(Math.max(scrollTop + windowHeight - cardTop, 0), windowHeight);
-      const progress = visible / windowHeight; // 0 = fuera, 1 = completamente visible
-
-      // Movimiento desde abajo hacia arriba
-      const translateY = 50 * (1 - progress); // 50px abajo al entrar
-      card.style.transform = "translateY(" + translateY + "px)";
-
-      // Opacidad progresiva que llega a 1 antes
-      const opacityFactor = 1.8; // ajusta este valor para que aparezca antes
-      card.style.opacity = Math.min(progress * opacityFactor, 1).toString();
-    });
-
-    requestAnimationFrame(animateCards);
-  }
-
-  animateCards();
-}
-</script>

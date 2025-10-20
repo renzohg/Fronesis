@@ -61,35 +61,3 @@ import ServicesCards from '../servicescards/servicescards.astro';
     </div>
   </div>
 </section>
-<script type="module">
-if (typeof window !== 'undefined') {
-  // Seleccionamos solo los elementos del encabezado
-  const headerElements = document.querySelectorAll('.titulo-principal, .subtitulo, .punto');
-
-  function animateHeader() {
-    const scrollTop = window.scrollY;
-    const windowHeight = window.innerHeight;
-
-    headerElements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      const elementTop = rect.top + scrollTop;
-
-      // Cuánto del elemento está visible
-      const visible = Math.min(Math.max(scrollTop + windowHeight - elementTop, 0), windowHeight);
-      const progress = visible / windowHeight;
-
-      // Movimiento desde abajo hacia arriba
-      const translateY = 50 * (1 - progress);
-      el.style.transform = "translateY(" + translateY + "px)";
-
-      // Opacidad progresiva que llega a 1 antes de estar completamente visible
-      const opacityFactor = 1.5;
-      el.style.opacity = Math.min(progress * opacityFactor, 1).toString();
-    });
-
-    requestAnimationFrame(animateHeader);
-  }
-
-  animateHeader();
-}
-</script>
