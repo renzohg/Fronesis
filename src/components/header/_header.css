@@ -109,7 +109,10 @@ h1 {
 }
 
 
-
+#services-header-buttons{
+  text-decoration: none;
+  color: inherit;
+}
 
 .section_header p {
   font-size: 1.4rem;
@@ -126,16 +129,15 @@ h1 {
   margin-top: -0.7rem;
 }
 
-.divider {
-  width: 7px;
-  height: 7px;
-  max-width: 7px;
-  background-color: var(--accent);
-  border-radius: 50%;
-  margin: 1rem auto 0 auto;
-  font-family: var(--font-body);
+#header_divider {
+  padding: 1rem 0;
+  margin-bottom: 0;
 }
 
+#theme-icon{
+  width: 35px;
+  height: 35px;
+}
 
 .buttons {
   display: flex;

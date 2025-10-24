@@ -21,13 +21,16 @@ import "./_navbar.css";
       <a href="#contacto">CONTACTO</a>
     </nav>
 
-    <button class="theme-toggle" id="theme-toggle">🌓</button>
+    <button class="theme-toggle" id="theme-toggle">
+      <img src="/sun.svg" alt="Tema claro" id="theme-icon" />
+    </button>
   </div>
 
   <script>
     const hamburger = document.getElementById("hamburger");
     const navLinks = document.getElementById("nav-links");
     const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon") as HTMLImageElement;
     const root = document.documentElement;
     let isDark = false;
 
@@ -52,11 +55,13 @@ import "./_navbar.css";
       });
     }
 
-    // Cambiar tema
-    if (themeToggle) {
+    // Cambiar tema e ícono
+    if (themeToggle && themeIcon) {
       themeToggle.addEventListener("click", () => {
         isDark = !isDark;
         root.setAttribute("data-theme", isDark ? "dark" : "light");
+        themeIcon.src = isDark ? "/moon.svg" : "/sun.svg";
+        themeIcon.alt = isDark ? "Tema oscuro" : "Tema claro";
       });
     }
   </script>

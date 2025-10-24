@@ -11,67 +11,14 @@ import './_header.css';
   <h2>Online</h2>
   <p>Creamos páginas web simples y efectivas para tu negocio.</p>
   <p class="subtext">Diseño profesional, entrega rápida.</p>
-  <div class="divider">
+  <div class="hero__divider" id="header_divider">
+  <span></span>
+  <div class="dot"></div>
+  <span></span>
   </div>
 
   <div class="buttons">
-    <button class="btn btn-primary">Comenzar Proyecto →</button>
-    <button class="btn btn-outline">Ver Servicios</button>
+    <button class="btn btn-primary"><a id="services-header-buttons" href="#contacto">Comenzar Proyecto →</a></button>
+    <button class="btn btn-outline"><a id="services-header-buttons" href="#servicios">Ver Servicios</a></button>
   </div>
 </section>
-
-<script type="module">
-if (typeof window !== 'undefined') {
-  const pillars = document.querySelectorAll('.pillar');
-  const headerElements = document.querySelectorAll('.header > *:not(.pillar)');
-  let targetScroll = 0;
-  let currentScroll = 0;
-
-  window.addEventListener('wheel', (e) => {
-    targetScroll += e.deltaY;
-    targetScroll = Math.max(0, Math.min(targetScroll, window.innerHeight));
-  });
-
-  function animate() {
-    currentScroll += (targetScroll - currentScroll) * 0.1;
-
-    // Pilares: efecto lateral y opacidad rápida
-    const pillarFadePoint = window.innerHeight * 0.4;
-    pillars.forEach((pillar) => {
-      const opacity = Math.max(0, 1 - targetScroll / pillarFadePoint);
-      const translateX = Math.min(targetScroll / 5, 80);
-
-      if (pillar.classList.contains('pillar-left')) {
-        pillar.style.transform = `translate(-${translateX}px, -50%)`;
-      } else {
-        pillar.style.transform = `translate(${translateX}px, -50%)`;
-      }
-
-      pillar.style.opacity = opacity.toString();
-    });
-
-    // Textos: movimiento hacia arriba y fade solo en tramo final
-    const moveFactor = 2; // velocidad del movimiento hacia arriba
-    const fadeStart = window.innerHeight * 0.15; // cuando empieza a desaparecer
-    const fadeEnd = window.innerHeight * 0.5;    // cuando desaparece completamente
-
-    headerElements.forEach((el) => {
-      // Movimiento hacia arriba progresivo
-      const translateY = Math.min(currentScroll / moveFactor, 100);
-      el.style.transform = `translateY(-${translateY}px)`;
-
-      // Fade solo en el tramo final, igual que pilares pero más tarde
-      let elementOpacity = 1;
-      if (currentScroll > fadeStart) {
-        elementOpacity = 1 - (currentScroll - fadeStart) / (fadeEnd - fadeStart);
-      }
-      elementOpacity = Math.max(0, Math.min(elementOpacity, 1));
-      el.style.opacity = elementOpacity.toString();
-    });
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-}
-</script>
