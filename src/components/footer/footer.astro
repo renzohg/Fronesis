@@ -1,50 +1,223 @@
 ---
-import "./_footer.css";
+import './_footer.css';
 ---
 
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-col brand">
       <h2 class="footer-logo">FRÓNESIS</h2>
-      <p class="footer-subtitle">
-        Diseño y estrategia digital con la<br />
-        excelencia del Olimpo
-      </p>
-      <p class="footer-desc">
-        Transformamos tu presencia online con<br />
-        sabiduría práctica y visión estratégica
-      </p>
+      <p class="footer-subtitle">Diseño y estrategia digital con la<br>excelencia del Olimpo</p>
+      <p class="footer-desc">Transformamos tu presencia online con<br>sabiduría práctica y visión estratégica</p>
     </div>
 
     <div class="footer-col">
       <h3 class="footer-title">SERVICIOS</h3>
-      <ul>
-        <li>Landing Pages</li>
-        <li>SEO Estratégico</li>
-        <li>Diseño Corporativo</li>
-        <li>Consultoría Digital</li>
-      </ul>
+      <ul><li>Landing Pages</li><li>SEO Estratégico</li><li>Diseño Corporativo</li><li>Consultoría Digital</li></ul>
     </div>
 
     <div class="footer-col">
       <h3 class="footer-title">EMPRESA</h3>
       <ul>
-        <li><a href="#">Sobre Nosotros</a></li>
-        <li><a href="#">Proyectos</a></li>
-        <li><a href="#">Recursos</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="#" data-modal="sobre">Sobre Nosotros</a></li>
+        <li><a href="#" data-modal="proyectos">Proyectos</a></li>
+        <li><a href="#" data-modal="recursos">Recursos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h3 class="footer-title">LEGAL</h3>
       <ul>
-        <li><a href="#">Términos de Servicio</a></li>
-        <li><a href="#">Política de Privacidad</a></li>
+        <li><a href="#" data-modal="terminos">Términos de Servicio</a></li>
+        <li><a href="#" data-modal="privacidad">Política de Privacidad</a></li>
       </ul>
     </div>
   </div>
 
-  <hr class="footer-line" />
+  <hr class="footer-line">
+
+  <div class="footer-bottom">
+    <small>© 2025 FRÓNESIS. Todos los derechos reservados.</small>
   </div>
 </footer>
+
+<!-- MODAL UNIVERSAL -->
+<div id="legalModal" class="legal-modal">
+  <div class="legal-modal-content">
+    <button class="legal-close" aria-label="Cerrar">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script type="module">
+  // JS DIRECTO EN EL COMPONENTE → NUNCA FALLA
+  const modal = document.getElementById("legalModal");
+  const body  = document.getElementById("modalBody");
+  const close = document.querySelector(".legal-close");
+
+  const textos = {
+    // === TUS LEGALES (100% IGUAL) ===
+    terminos: `
+      <h1>Términos de Servicio</h1>
+      <p>Bienvenid@ a <strong>FRÓNESIS</strong>. Al usar nuestros servicios aceptas todo lo que dice Zeus (y lo que dice aquí debajo).</p>
+
+      <h2>1. Objeto del Servicio</h2>
+      <p>FRÓNESIS (en adelante "la Agencia") ofrece servicios de desarrollo web, diseño digital, SEO estratégico y consultoría digital (en adelante "los Servicios"). En el futuro, la Agencia podrá expandir su oferta para incluir desarrollo de software y otras soluciones tecnológicas.</p>
+
+      <h2>2. Etapas del Proyecto</h2>
+      <h3>2.1 Etapa de Maquetación (Discovery y Propuesta)</h3>
+      <p>En esta etapa se presentan maquetas, diseños y propuestas conceptuales del proyecto. El cliente puede solicitar modificaciones hasta estar conforme. Si el cliente no está satisfecho con las maquetas presentadas <strong>antes</strong> de iniciarse la etapa de desarrollo, tendrá derecho a un <strong>reembolso del 100%</strong> de lo abonado.</p>
+
+      <h3>2.2 Etapa de Desarrollo</h3>
+      <p>Una vez aprobadas las maquetas e iniciado el desarrollo, se comienza la codificación y construcción del proyecto. Si el cliente no está satisfecho con el producto final y lo comunica formalmente, la Agencia revisará los requisitos iniciales. En caso de discrepancia o incumplimiento de lo acordado, se reembolsará el <strong>50%</strong> de lo abonado en esta etapa. El 50% restante cubre el tiempo dedicado al análisis, maquetación, reuniones y desarrollo realizado.</p>
+
+      <h3>2.3 Proyectos Maquetados por el Cliente</h3>
+      <p>Si el cliente presenta un proyecto ya maquetado y solicita que la Agencia lo desarrolle, aplica el protocolo de la Etapa de Desarrollo. Cualquier insatisfacción deberá comunicarse formalmente para que la Agencia pueda revisar y mejorar. Se reembolsará el <strong>50%</strong> de lo abonado si existe incumplimiento documentado de los requisitos acordados.</p>
+
+      <h2>3. Forma de Pago</h2>
+      <p>Los servicios se cotizan con un costo total acordado entre ambas partes. El pago se realiza en <strong>dos cuotas</strong>:</p>
+      <ul>
+        <li><strong>50% por adelanto:</strong> Se requiere al momento de firmar el contrato y antes de iniciarse los trabajos.</li>
+        <li><strong>50% al finalizar:</strong> Se cobra una vez completado el proyecto y presentado al cliente para revisión final.</li>
+      </ul>
+
+      <h2>4. Entrega de Código y Acceso</h2>
+      <p>El código fuente, archivos de proyecto, credenciales de acceso y toda documentación técnica se entregarán <strong>únicamente después del pago completo (100%)</strong> del servicio.</p>
+      <p>Durante el período de desarrollo y previo al pago final, la Agencia proporcionará acceso a un entorno de prueba o preview del proyecto para revisión del cliente.</p>
+
+      <h2>5. Incumplimiento de Pago</h2>
+      <p>En caso de que el cliente no cumpla con los pagos acordados:</p>
+      <ul>
+        <li>La Agencia suspenderá los trabajos hasta regularizar la deuda.</li>
+        <li>Si la página web o aplicación está publicada, la Agencia podrá dar de baja el servicio hasta que se regularice el pago.</li>
+        <li>Se aplicarán <strong>intereses por mora</strong> según la tasa establecida por el Banco Central de la República Argentina.</li>
+      </ul>
+
+      <h2>6. Modificaciones y Cambios de Alcance</h2>
+      <p>Las modificaciones solicitadas fuera del alcance inicial del proyecto pueden generar costos adicionales. La Agencia informará sobre estas variaciones <strong>antes</strong> de proceder.</p>
+
+      <h2>7. Mantenimiento y Soporte Post-Entrega</h2>
+      <p>Después de la entrega final del proyecto, la Agencia <strong>no es responsable</strong> de mantenimiento, actualizaciones de seguridad o cambios en plataformas externas (hosting, dominios, servicios third-party) a menos que se acuerde un contrato de soporte adicional.</p>
+
+      <h2>8. Propiedad Intelectual</h2>
+      <p>Una vez completado el pago, la Agencia <strong>cede los derechos</strong> sobre el código y diseño desarrollado para el proyecto específico del cliente. La Agencia retiene los derechos sobre metodologías, librerías, componentes reutilizables y conocimiento adquirido durante el desarrollo.</p>
+
+      <h2>9. Limitación de Responsabilidad</h2>
+      <p>La Agencia no es responsable por:</p>
+      <ul>
+        <li>Pérdida de datos causada por servidores de terceros o problemas de hosting.</li>
+        <li>Cambios en plataformas, APIs o servicios externos utilizados.</li>
+        <li>Seguridad de credenciales o accesos proporcionados por el cliente.</li>
+        <li>Daños indirectos, pérdidas de ingresos o gastos consecuentes.</li>
+      </ul>
+
+      <h2>10. Ley Aplicable y Jurisdicción</h2>
+      <p>Estos términos se rigen por las leyes de la <strong>República Argentina</strong>. Cualquier controversia será resuelta ante los tribunales competentes de la República Argentina, específicamente bajo la jurisdicción de la provincia correspondiente al domicilio del cliente.</p>
+
+      <h2>11. Modificaciones a los Términos</h2>
+      <p>La Agencia se reserva el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigencia inmediatamente. El uso continuado de los servicios implica la <strong>aceptación</strong> de los términos modificados.</p>
+    `,
+
+    privacidad: `
+      <h1>Política de Privacidad</h1>
+
+      <h2>1. Responsable</h2>
+      <p>FRÓNESIS es responsable del cumplimiento de la <strong>Ley de Protección de Datos Personales Nº 25.326</strong> y la <strong>Ley de Defensa del Consumidor Nº 24.240</strong> de la República Argentina.</p>
+
+      <h2>2. Política de No Almacenamiento de Datos</h2>
+      <p>FRÓNESIS <strong>no almacena</strong> información personal de visitantes en sus servidores. Los datos de contacto, presupuestos y transacciones son procesados exclusivamente mediante terceros proveedores de confianza (email, pasarelas de pago) bajo cláusulas de confidencialidad.</p>
+
+      <h2>3. Cookies y Rastreo Analítico</h2>
+      <p>Nuestro sitio web utiliza cookies de análisis (<strong>Google Analytics</strong>) únicamente para entender el comportamiento de navegación y mejorar nuestra experiencia. Estas cookies <strong>no identifican personalmente</strong> a los visitantes.</p>
+      <p>Usted puede <strong>desactivar cookies</strong> en la configuración de su navegador sin afectar funcionalidades críticas.</p>
+
+      <h2>4. Datos Compartidos con Terceros</h2>
+      <ul>
+        <li><strong>Contacto y Cotizaciones:</strong> Los datos de contacto proporcionados en formularios se envían a nuestro email corporativo. No se almacenan en bases de datos propias.</li>
+        <li><strong>Pagos:</strong> Los datos de transacción se procesan únicamente a través de proveedores de pago certificados. FRÓNESIS <strong>no accede ni almacena</strong> datos bancarios.</li>
+        <li><strong>No compartimos</strong> su información con terceros para fines comerciales sin su consentimiento explícito.</li>
+      </ul>
+
+      <h2>5. Seguridad</h2>
+      <p>Utilizamos <strong>encriptación SSL/TLS</strong> en todo nuestro sitio web. Los datos transmitidos están protegidos, aunque reconocemos que ningún método de transmisión por internet es 100% seguro.</p>
+
+      <h2>6. Enlaces a Terceros</h2>
+      <p>Nuestro sitio puede contener enlaces a terceros. <strong>No somos responsables</strong> por sus prácticas de privacidad. Le recomendamos revisar sus políticas antes de proporcionar datos personales.</p>
+
+      <h2>7. Contacto</h2>
+      <p>Para consultas sobre privacidad, puede contactarnos a través de los medios disponibles en nuestro sitio web.</p>
+
+      <h2>8. Cambios en Esta Política</h2>
+      <p>Esta política puede ser modificada en cualquier momento. Los cambios serán publicados en este sitio. El uso continuado de nuestros servicios implica <strong>aceptación</strong> de los cambios.</p>
+
+      <h2>9. Ley Aplicable</h2>
+      <p>Esta política se rige por las leyes de la <strong>República Argentina</strong>, específicamente la Ley de Protección de Datos Personales Nº 25.326 y la Ley de Defensa del Consumidor Nº 24.240.</p>
+    `,
+
+    // === NUEVOS CONTENIDOS (COMPLETOS) ===
+    sobre: `
+      <h1>Sobre Nosotros</h1>
+      <p><strong>FRÓNESIS</strong> nace de la unión entre la sabiduría práctica (phronesis) y la ambición digital del Olimpo.</p>
+      <p>Somos un equipo de estrategas, diseñadores y desarrolladores obsesionados con transformar ideas en experiencias digitales que <strong>generan resultados reales</strong>.</p>
+      <h2>Nuestra filosofía</h2>
+      <ul>
+        <li>Diseño con propósito</li>
+        <li>Estrategia antes que estética</li>
+        <li>Código limpio y escalable</li>
+        <li>Compromiso con el éxito del cliente</li>
+      </ul>
+      <h2>Equipo</h2>
+      <p>Contamos con especialistas en UX/UI, SEO técnico, desarrollo full-stack y growth marketing. Cada proyecto es liderado por un <em>Project God</em> que garantiza la excelencia olímpica.</p>
+    `,
+
+    proyectos: `
+      <h1>Nuestros Proyectos</h1>
+      <p>Estos son algunos de los sitios que han confiado en nosotros para elevar su presencia digital:</p>
+      <ul>
+        <li><strong>Athena Analytics</strong> – Dashboard de datos en tiempo real</li>
+        <li><strong>Hermes Express</strong> – E-commerce con logística integrada</li>
+        <li><strong>Poseidón Resorts</strong> – Web experiencial con reservas 3D</li>
+        <li><strong>Apolo Music</strong> – Plataforma de streaming independiente</li>
+      </ul>
+      <p>¿Quieres ver el caso de estudio completo? <a href="/contacto">Contáctanos</a> y te enviamos el portafolio privado.</p>
+    `,
+
+    recursos: `
+      <h1>Recursos Gratuitos</h1>
+      <p>Descarga herramientas y guías que usamos con nuestros clientes:</p>
+      <ul>
+        <li><a href="#">Checklist SEO 2025 (PDF)</a></li>
+        <li><a href="#">Plantilla Figma – Landing Hero</a></li>
+        <li><a href="#">Guía de Velocidad Web (Core Web Vitals)</a></li>
+        <li><a href="#">Calculadora de ROI de Rediseño</a></li>
+      </ul>
+      <p>Todos los recursos se envían por email. ¡Sin spam, solo valor!</p>
+    `
+  };
+
+  // ABRIR MODAL (AHORA LEE data-modal Y data-legal)
+  document.querySelectorAll("[data-modal], [data-legal]").forEach(l => {
+    l.addEventListener("click", e => {
+      e.preventDefault();
+      const key = l.dataset.modal || l.dataset.legal;
+      body.innerHTML = textos[key];
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+      body.scrollTop = 0;
+    });
+  });
+
+  // CERRAR MODAL
+  const cerrar = () => {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+    body.scrollTop = 0;
+  };
+  close.addEventListener("click", cerrar);
+  modal.addEventListener("click", e => e.target === modal && cerrar());
+  document.addEventListener("keydown", e => e.key === "Escape" && modal.classList.contains("active") && cerrar());
+</script>
