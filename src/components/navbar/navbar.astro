@@ -26,43 +26,59 @@ import "./_navbar.css";
     </button>
   </div>
 
-  <script>
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
-    const themeToggle = document.getElementById("theme-toggle");
-    const themeIcon = document.getElementById("theme-icon") as HTMLImageElement;
-    const root = document.documentElement;
-    let isDark = false;
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon") as HTMLImageElement | null;
+  const root = document.documentElement;
 
-    // Abrir/cerrar menú
-    if (hamburger && navLinks) {
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navLinks.classList.toggle("open");
-      });
-    }
+  // === CARGAR TEMA GUARDADO AL INICIO ===
+  const savedTheme = localStorage.getItem("theme");
+  let isDark = savedTheme === "dark";
 
-    // Cerrar menú al hacer clic en una opción
-    if (navLinks && hamburger) {
-      const navItems = navLinks.querySelectorAll("a, button");
-      navItems.forEach(item => {
-        item.addEventListener("click", () => {
-          if (navLinks.classList.contains("open")) {
-            navLinks.classList.remove("open");
-            hamburger.classList.remove("active");
-          }
-        });
-      });
-    }
+  // Aplicar tema guardado (o detectar preferencia del sistema)
+  if (!savedTheme) {
+    isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
 
-    // Cambiar tema e ícono
-    if (themeToggle && themeIcon) {
-      themeToggle.addEventListener("click", () => {
-        isDark = !isDark;
-        root.setAttribute("data-theme", isDark ? "dark" : "light");
-        themeIcon.src = isDark ? "/moon.svg" : "/sun.svg";
-        themeIcon.alt = isDark ? "Tema oscuro" : "Tema claro";
+  root.setAttribute("data-theme", isDark ? "dark" : "light");
+  if (themeIcon) {
+    themeIcon.src = isDark ? "/moon.svg" : "/sun.svg";
+    themeIcon.alt = isDark ? "Tema oscuro" : "Tema claro";
+  }
+
+  // === CAMBIAR TEMA AL HACER CLIC ===
+  if (themeToggle && themeIcon) {
+    themeToggle.addEventListener("click", () => {
+      isDark = !isDark;
+      root.setAttribute("data-theme", isDark ? "dark" : "light");
+      themeIcon.src = isDark ? "/moon.svg" : "/sun.svg";
+      themeIcon.alt = isDark ? "Tema oscuro" : "Tema claro";
+
+      // GUARDAR EN LOCALSTORAGE
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
+
+  // === MENÚ HAMBURGUESA (sin cambios) ===
+  if (hamburger && navLinks) {
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navLinks.classList.toggle("open");
+    });
+  }
+
+  if (navLinks && hamburger) {
+    const navItems = navLinks.querySelectorAll("a, button");
+    navItems.forEach(item => {
+      item.addEventListener("click", () => {
+        if (navLinks.classList.contains("open")) {
+          navLinks.classList.remove("open");
+          hamburger.classList.remove("active");
+        }
       });
-    }
-  </script>
+    });
+  }
+</script>
 </header>

@@ -159,7 +159,7 @@
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background: var(--cta-bg);
+  background: var(--cta-bg-circles);
   color: var(--cta-text);
   display: flex;
   align-items: center;

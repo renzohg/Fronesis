@@ -130,13 +130,13 @@ a{
   --text-secondary: #dddddd;
   --muted: #444444;
   --bg-alternative: #252525;
-  --bg-alternative1: #2f2f2f;
+  --bg-alternative1: #464646;
 
   /* === ACENTOS === */
   --accent: #d6a063;
   --accent-light: #e6b877;
   --accent-dark: #a87c4e;
-  --accent-title: #f0c088;
+  --accent-title: #f3b36e;
 
   /* === ACCIONES === */
   --cta-bg: #283c52;
@@ -152,4 +152,8 @@ a{
 
   /* === ESTADOS === */
   --success: #22c55e;
+
+  .parallax-category{
+    color: var(--accent-light);
+  }
 }
