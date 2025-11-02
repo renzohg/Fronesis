@@ -42,18 +42,6 @@
   color: var(--accent);
 }
 
-.hero__text {
-  font-size: 1.1rem;
-  color: var(--font-body);
-  opacity: 0.9;
-  margin-bottom: 3rem;
-  display: inline-block;
-}
-
-.hero .hero__text{
-    text-align: center;
-}
-
 .hero__divider {
   display: flex;
   align-items: center;

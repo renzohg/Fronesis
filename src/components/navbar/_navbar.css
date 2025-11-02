@@ -126,11 +126,14 @@ a{
   /* === COLORES BASE === */
   --bg: #1e1e1e;
   --surface: #2b2b2b;
+  --surface-contact: #00000000;
   --text-primary: #ffffff;
   --text-secondary: #dddddd;
-  --muted: #444444;
+  --muted: #7a7a7a;
   --bg-alternative: #252525;
   --bg-alternative1: #464646;
+  --bg-contact: #242424;
+  --bg-contact-container: #292A2C;
 
   /* === ACENTOS === */
   --accent: #d6a063;
@@ -140,6 +143,7 @@ a{
 
   /* === ACCIONES === */
   --cta-bg: #283c52;
+  --cta-bg-contact: #ffffff;
   --cta-bg-sv: #d1d5db;
   --cta-bg-hover: #0d2f55;
   --cta-text: #ffffff;
@@ -156,4 +160,18 @@ a{
   .parallax-category{
     color: var(--accent-light);
   }
+
+  .input-group:focus-within label,
+  .input-group.filled label{
+    top:0;font-size:.8rem;color:var(--cta-bg-contact);font-weight:600;
+    background:var(--surface);padding:0 .4rem;z-index:1;
+    border-radius: 20px;
+  }
+
+  .form-title{
+  font-size:1.9rem;text-align:center;margin-bottom:.5rem;
+  background:linear-gradient(to right,var(--text-primary),var(--accent));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent
+}
 }
