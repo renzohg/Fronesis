@@ -67,7 +67,7 @@
 .legal-modal.active { display: flex; opacity: 1; }
 
 .legal-modal-content { 
-  background: var(--cta-bg); 
+  background: var(--cta-bg-modal); 
   color: var(--cta-text); 
   max-width: 720px; 
   width: 90%; 
@@ -87,7 +87,7 @@
 .legal-close { 
   position: absolute; 
   top: 1rem; right: 1rem; 
-  background: rgba(255,255,255,.1); 
+  background: var(--accent-light); 
   border: none; 
   width: 44px; height: 44px; 
   border-radius: 50%; 

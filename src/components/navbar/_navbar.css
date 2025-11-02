@@ -143,6 +143,7 @@ a{
 
   /* === ACCIONES === */
   --cta-bg: #283c52;
+  --cta-bg-modal: #283c52;  
   --cta-bg-contact: #ffffff;
   --cta-bg-sv: #d1d5db;
   --cta-bg-hover: #0d2f55;
