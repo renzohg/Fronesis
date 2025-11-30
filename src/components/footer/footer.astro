@@ -1,0 +1,134 @@
+---
+import './_footer.css';
+---
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-col brand">
+      <h2 class="footer-logo">FRÓNESIS</h2>
+      <p class="footer-subtitle">Diseño y estrategia digital con la<br>excelencia del Olimpo</p>
+      <p class="footer-desc">Transformamos tu presencia online con<br>sabiduría práctica y visión estratégica</p>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">SERVICIOS</h3>
+      <ul><li>Landing Pages</li><li>SEO Estratégico</li><li>Diseño Corporativo</li><li>Consultoría Digital</li></ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">EMPRESA</h3>
+      <ul>
+        <li><a href="#" data-modal="sobre">Sobre Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-title">LEGAL</h3>
+      <ul>
+        <li><a href="#" data-modal="terminos">Términos de Servicio</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="footer-line">
+
+  <div class="footer-bottom">
+    <small>© 2025 FRÓNESIS. Todos los derechos reservados.</small>
+  </div>
+</footer>
+
+<!-- MODAL UNIVERSAL -->
+<div id="legalModal" class="legal-modal">
+  <div class="legal-modal-content">
+    <button class="legal-close" aria-label="Cerrar">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script type="module">
+  // JS DIRECTO EN EL COMPONENTE → NUNCA FALLA
+  const modal = document.getElementById("legalModal");
+  const body  = document.getElementById("modalBody");
+  const close = document.querySelector(".legal-close");
+
+  const textos = {
+    // === TUS LEGALES (100% IGUAL) ===
+    terminos: `
+      <h1>Términos de Servicio</h1>
+      <p>Bienvenid@ a <strong>FRÓNESIS</strong>. Al usar nuestros servicios aceptas los siguientes términos.</p>
+
+      <h2>1. Servicios Ofrecidos</h2>
+      <p>FRÓNESIS ofrece servicios de desarrollo web, diseño digital, SEO estratégico y consultoría digital.</p>
+
+      <h2>2. Forma de Pago</h2>
+      <p>Los servicios se cotizan con un costo total acordado entre ambas partes. El pago se realiza en <strong>dos cuotas</strong>:</p>
+      <ul>
+        <li><strong>50% por adelanto:</strong> Se requiere al momento de firmar el contrato y antes de iniciarse los trabajos.</li>
+        <li><strong>50% al finalizar:</strong> Se cobra una vez completado el proyecto y presentado al cliente para revisión final.</li>
+      </ul>
+
+      <h2>3. Entrega de Código y Acceso</h2>
+      <p>El código fuente, archivos de proyecto, credenciales de acceso y toda documentación técnica se entregarán <strong>únicamente después del pago completo (100%)</strong> del servicio.</p>
+
+      <h2>4. Modificaciones y Cambios de Alcance</h2>
+      <p>Las modificaciones solicitadas fuera del alcance inicial del proyecto pueden generar costos adicionales. Se informará sobre estas variaciones <strong>antes</strong> de proceder.</p>
+
+      <h2>5. Mantenimiento y Soporte Post-Entrega</h2>
+      <p>Después de la entrega final del proyecto, FRÓNESIS <strong>no es responsable</strong> de mantenimiento, actualizaciones de seguridad o cambios en plataformas externas a menos que se acuerde un contrato de soporte adicional.</p>
+
+      <h2>6. Propiedad Intelectual</h2>
+      <p>Una vez completado el pago, FRÓNESIS <strong>cede los derechos</strong> sobre el código y diseño desarrollado para el proyecto específico del cliente.</p>
+
+      <h2>7. Modificaciones a los Términos</h2>
+      <p>FRÓNESIS se reserva el derecho de modificar estos términos en cualquier momento. El uso continuado de los servicios implica la <strong>aceptación</strong> de los términos modificados.</p>
+    `,
+
+    sobre: `
+      <h1>Sobre Nosotros</h1>
+      <p><strong>FRÓNESIS</strong> nace de la unión entre la sabiduría práctica (phronesis) y la ambición digital del Olimpo.</p>
+      <p>Somos un equipo de estrategas, diseñadores y desarrolladores obsesionados con transformar ideas en experiencias digitales que <strong>generan resultados reales</strong>.</p>
+
+      <h2>Nuestra Filosofía</h2>
+      <ul>
+        <li><strong>Diseño con propósito:</strong> Nada es decorativo; cada decisión visual responde a un objetivo.</li>
+        <li><strong>Código limpio y escalable:</strong> Creamos soluciones sólidas que acompañan el crecimiento de tu negocio.</li>
+        <li><strong>Compromiso genuino:</strong> Nos involucramos en cada proyecto como si fuera propio. Tu éxito también es el nuestro.</li>
+      </ul>
+
+      <h2>Nuestro Equipo</h2>
+      <p>Somos un equipo de tres personas que trabajamos de manera coordinada y cercana: dos desarrolladores full-stack que se ocupan tanto de la estructura y la lógica del proyecto como de que todo funcione de forma estable y escalable, y un desarrollador frontend que transforma cada diseño en una interfaz clara, fluida y agradable de usar. Cada uno aporta una mirada distinta, pero todos compartimos la misma forma de trabajar: compromiso, criterio y atención a los detalles para que cada proyecto llegue a su mejor versión.</p>
+
+      <h2>¿Por qué FRÓNESIS?</h2>
+      <p>En la filosofía griega, <strong>phronesis</strong> representa la sabiduría práctica: la capacidad de tomar decisiones acertadas basadas en experiencia y conocimiento. Aplicamos este concepto a cada proyecto digital, combinando experiencia técnica con visión estratégica.</p>
+
+    `,
+
+  };
+
+  // ABRIR MODAL (AHORA LEE data-modal Y data-legal)
+  document.querySelectorAll("[data-modal], [data-legal]").forEach(l => {
+    l.addEventListener("click", e => {
+      e.preventDefault();
+      const key = l.dataset.modal || l.dataset.legal;
+      body.innerHTML = textos[key];
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+      body.scrollTop = 0;
+    });
+  });
+
+  // CERRAR MODAL
+  const cerrar = () => {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+    body.scrollTop = 0;
+  };
+  close.addEventListener("click", cerrar);
+  modal.addEventListener("click", e => e.target === modal && cerrar());
+  document.addEventListener("keydown", e => e.key === "Escape" && modal.classList.contains("active") && cerrar());
+</script>

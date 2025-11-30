@@ -1,0 +1,212 @@
+/* SECCIÓN PRINCIPAL */
+.parallax-section {
+  min-height: 100vh;
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, var(--bg), var(--bg-alternative));
+}
+
+/* ENCABEZADO */
+.parallax-header {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.parallax-title {
+  font-size: 2.8rem;
+  font-weight: var(--fw-bold);
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-family: var(--font-title);
+}
+
+.parallax-title-accent {
+  color: var(--accent);
+}
+
+.parallax-description {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-family: var(--font-body);
+}
+
+.parallax-card-left .parallax-card-image{
+    width: 65px;
+    height: 65px;
+    margin: 1rem;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* CONTENEDOR DE CARDS */
+.parallax-cards-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+/* CARD */
+.parallax-card {
+  opacity: 0;
+  transform: translateY(80px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.parallax-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.parallax-card-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.parallax-card-content {
+  background: var(--surface);
+  border: 1px solid var(--badge-border);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.5s ease, transform 0.3s ease;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* COLUMNA IZQUIERDA */
+.parallax-card-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.parallax-icon {
+  font-size: 4rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.parallax-category {
+  font-size: 0.8rem;
+  font-weight: var(--fw-semibold);
+  color: var(--accent-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.parallax-card-title {
+  font-size: 2.3rem;
+  font-weight: var(--fw-bold);
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.parallax-card-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* COLUMNA DERECHA */
+.parallax-card-right {
+  display: flex;
+  align-items: center;
+}
+
+.parallax-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.parallax-feature-item {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  background: var(--bg-alternative1);
+  border-left: 4px solid var(--accent);
+  border-radius: 0.5rem;
+}
+
+.parallax-feature-item.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.parallax-feature-number {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--cta-bg-circles);
+  color: var(--cta-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-bold);
+  font-size: 0.875rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .parallax-title {
+    font-size: 1.875rem;
+  }
+
+  .parallax-cards-container {
+    gap: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .parallax-card-content {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  .parallax-card-title {
+    font-size: 2rem;
+  }
+
+  .parallax-card-description {
+    font-size: 1rem;
+  }
+
+  .parallax-icon {
+    font-size: 3rem;
+  }
+
+  .parallax-card {
+    transform: translateY(40px) scale(0.98);
+  }
+
+  .parallax-card-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+}
+

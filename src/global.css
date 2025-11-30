@@ -1,0 +1,114 @@
+:root {
+  /* === COLORES BASE === */
+  --bg: #fefbf9; /* Fondo cálido principal */
+  --surface: #ffffff;
+  --surface-contact: #FAF8F5;
+  --text-primary: #1e1e1e;
+  --text-secondary: #2b3b4b;
+  --muted: #b1b1b1;
+  --bg-alternative: #F7F4F0;
+  --bg-alternative1: #FAF8F5;
+  --bg-contact: #FAF8F5;
+  --bg-contact-container: #ffffff;
+  /* === ACENTOS === */
+  --accent: #d19a64;       /* Dorado principal */
+  --accent-light: #e5b275; /* Dorado claro */
+  --accent-dark: #b38a60;  /* Dorado más oscuro */
+  --accent-title: #EAB780; /* Azul para títulos */
+
+  /* === ACCIONES === */
+  --cta-bg: #133e87;       /* Azul principal (botones) */
+  --cta-bg-modal: #FFFFFF;  
+  --cta-bg-contact: #133e87;
+  --cta-bg-contact-label: #133e87;
+  --cta-bg-circles: #b38a60; 
+  --cta-bg-sv: #133e87;
+  --cta-bg-hover: #1b51af; /* Azul más oscuro (hover) */
+  --cta-text: #ffffff;
+
+  /* === DECORATIVOS === */
+  --badge-bg: #FFFFFF;
+  --badge-border: #F1E3D6;
+  --badge-text: #59656e;
+  --badge-gray: #ccc;
+
+  /* === ESTADOS === */
+  --success: #16a34a;
+  --danger: #dc2626;
+
+  /* === EFECTOS === */
+  --glass: rgba(255, 255, 255, 0.6);
+  --shadow: 0 6px 18px rgba(15, 23, 36, 0.12);
+
+  /* === FUENTES === */
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Lora', sans-serif;
+
+  /* === PESOS DE FUENTE === */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  line-height: 1.6;
+}
+
+section {
+  scroll-margin-top: 57px; /* para que scroll automático respete el navbar */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  color: var(--text-primary);
+  font-weight: var(--fw-semibold);
+}
+
+p, span, a, li {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+}
+
+.btn-primary {
+  background: var(--cta-bg);
+  color: var(--cta-text);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--cta-text);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+}
+
+.card {
+  background: var(--bg-alternative1);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}

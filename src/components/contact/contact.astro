@@ -1,0 +1,119 @@
+---
+// ContactForm.astro → 0 errores, 100% Astro
+import './_contact.css';
+---
+
+<section class="quotation-section" id="contacto">
+  <div class="header-content">
+    <h1 class="main-title">
+      Solicita tu <span class="accent-title-span">Cotización</span>
+    </h1>
+    <p class="subtitle">Respuesta personalizada · 100 % gratis</p>
+    <div class="response-time-badges">
+      <span class="badgee">Respuesta rapida</span>
+      <span class="badgee">Sin compromiso</span>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <form id="contact-form" action="https://formspree.io/f/mjkazkbr" method="POST">
+      <h2 class="form-title">¡Hablemos de tu proyecto!</h2>
+      <p class="form-instruction">Llena el formulario y te contactamos hoy mismo</p>
+
+      <div class="input-group">
+        <label>NOMBRE *</label>
+        <input type="text" name="name" required />
+      </div>
+
+      <div class="input-group">
+        <label>EMAIL *</label>
+        <input type="email" name="email" required />
+      </div>
+
+      <div class="input-group select-group">
+        <label>TIPO DE PROYECTO *</label>
+        <div class="select-wrapper">
+          <select name="project-type" required>
+            <option value="" disabled selected></option>
+            <option>Página Web Simple</option>
+            <option>Sitio Web Completo</option>
+            <option>Tienda Online</option>
+            <option>Rediseño de Sitio</option>
+            <option>Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>CUÉNTANOS MÁS</label>
+        <textarea name="message" rows="4" placeholder="Presupuesto, plazos, ideas..."></textarea>
+      </div>
+
+      <button type="submit" class="cta-button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+        </svg>
+        ENVIAR Y RECIBIR COTIZACIÓN
+      </button>
+    </form>
+
+    <p id="form-success" class="form-success">
+      ¡Recibido! Te contactaremos lo más pronto posible.
+    </p>
+  </div>
+</section>
+
+<script>
+  // ============ TODO TIPADO CORRECTO ============
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const success = document.getElementById('form-success') as HTMLElement;
+    const button = form.querySelector('.cta-button') as HTMLButtonElement;
+
+    if (!form || !success || !button) return;
+
+    // ---- Etiquetas flotantes ----
+    const updateLabel = (input: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement) => {
+      const group = input.closest('.input-group');
+      if (input.value.trim()) group?.classList.add('filled');
+      else group?.classList.remove('filled');
+    };
+
+    form.querySelectorAll('input, textarea, select').forEach((el) => {
+      const input = el as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+      input.addEventListener('input', () => updateLabel(input));
+      input.addEventListener('change', () => updateLabel(input));
+      updateLabel(input);
+    });
+
+    // ---- Envío Formspree ----
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const original = button.innerHTML;
+      button.innerHTML = 'Enviando...';
+      button.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+
+        if (res.ok) {
+          success.style.display = 'block';
+          form.reset();                                // ← reset() existe en HTMLFormElement
+          form.querySelectorAll('.input-group').forEach(g => g.classList.remove('filled'));
+        } else {
+          alert('Error al enviar. Intenta más tarde.');
+        }
+      } catch {
+        alert('Sin conexión. Revisa tu internet.');
+      }
+
+      button.innerHTML = original;
+      button.disabled = false;
+    });
+  });
+</script>
